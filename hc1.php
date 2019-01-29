@@ -1,6 +1,6 @@
-fgndf<?php
-fgn n$arr = [1,10,6,3,4,-8,6,7,4,3,2,1];
-ghnhgn$index=5;
+<?php
+$arr = [1,10,6,3,4,-8,6,7,4,3,2,1];
+$index=5;
 
 function arr ($array,$index){
 if(isset($array[$index-1])){
