@@ -9,18 +9,19 @@ if (($fizz != 0) && ($buzz != 0)){
 fputs($file,"Your Fizz-Buzz Code: ");
 while ($count <= $max_count) {
 	if (($count % (int)$fizz) && ($count % (int)$buzz)) {
-		fputs($file, $count);
+		fputs($file, $count.' ');
 		$count++;
 	}elseif ($count % (int)$fizz) {
-		fputs($file, "B");
+		fputs($file, "B ");
 		$count++;
 	}elseif ($count % (int)$buzz) { 
-		fputs($file, "F");
+		fputs($file, "F ");
 		$count++;
-	}else {fputs($file, "FB"); 
+	}else {fputs($file, "FB "); 
 	$count++;
 	}
 }
+fputs($file,"\r\n");
 echo "\n";
 } else echo "Try again. Use numbers and don`t use zero\n";
 fclose($handle);
