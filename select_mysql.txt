@@ -1,0 +1,93 @@
+mysql> SELECT SUBSTRING(fullname, 1, INSTR(fullname, ' ')) as names FROM authors;
++------------+
+| names      |
++------------+
+| Steve      |
+| Erich      |
+| Richard    |
+| Ralph      |
+| John       |
+| Steve      |
+| Junot      |
+| Edward     |
+| Marilynne  |
+| Jonathan   |
+| Jennifer   |
+| Ben        |
++------------+
+12 rows in set (0.03 sec)
+mysql> select avg(birth_year) from authors where (fullname like "%Steve%");     +-----------------+
+| avg(birth_year) |
++-----------------+
+|       1958.5000 |
++-----------------+
+1 row in set (0.03 sec)
+mysql> SELECT SUBSTRING(fullname, 1, INSTR(fullname, ' ')) as names FROM authors order by fullname;
++------------+
+| names      |
++------------+
+| Ben        |
+| Edward     |
+| Erich      |
+| Jennifer   |
+| John       |
+| Jonathan   |
+| Junot      |
+| Marilynne  |
+| Ralph      |
+| Richard    |
+| Steve      |
+| Steve      |
++------------+
+12 rows in set (0.00 sec)
+mysql> SELECT author_id, SUBSTRING(fullname, 1, INSTR(fullname, ' ')) as names FROM authors order by fullname;
++-----------+------------+
+| author_id | names      |
++-----------+------------+
+|        12 | Ben        |
+|         8 | Edward     |
+|         2 | Erich      |
+|        11 | Jennifer   |
+|         5 | John       |
+|        10 | Jonathan   |
+|         7 | Junot      |
+|         9 | Marilynne  |
+|         4 | Ralph      |
+|         3 | Richard    |
+|         6 | Steve      |
+|         1 | Steve      |
++-----------+------------+
+12 rows in set (0.00 sec)
+mysql> INSERT INTO authors (fullname,birth_year) VALUES ("Steve Lyons",1955);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT count(birth_year),birth_year from authors where (fullname like "%Steve%") group by birth_year;
++-------------------+------------+
+| count(birth_year) | birth_year |
++-------------------+------------+
+|                 2 |       1955 |
+|                 1 |       1962 |
++-------------------+------------+
+2 rows in set (0.00 sec)
+mysql> select repeat("john",10);                                                +------------------------------------------+
+| repeat("john",10)                        |
++------------------------------------------+
+| johnjohnjohnjohnjohnjohnjohnjohnjohnjohn |
++------------------------------------------+
+1 row in set (0.00 sec)
+mysql> select 10%4;
++------+
+| 10%4 |
++------+
+|    2 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select mod(10,4);
++-----------+
+| mod(10,4) |
++-----------+
+|         2 |
++-----------+
+1 row in set (0.00 sec)
+
