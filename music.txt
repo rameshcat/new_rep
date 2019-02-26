@@ -1,0 +1,6 @@
+select song_name , singer_name from songs inner join singers on (singer = singer_id) where singer_name = "Metallica";
+select song_name , singer_name , album_title from songs inner join singers on (singer = singer_id) inner join album on (album = album_id) order by singer_name;
+select song_name , singer_name , album_title from songs inner join singers on (singer = singer_id) inner join album on (album = album_id) order by album_title;
+select song_name , singer_name , album_title, year as album_year, song_id  from songs inner join singers on (singer = singer_id) inner join album on (album = album_id) where singer_name = "Metallica" order by album_year, song_id;
+select song_name , singer_name , album_title, year as album_year, song_id, genre_name from songs inner join singers on (singer = singer_id) inner join album on (album = album_id) inner join genres on (genre = genre_id) where genre_name = "Heavy Metal" order by album_year desc;
+select count(*) number_of_songs, singer_name, genre_name, album_title from songs inner join singers on (singer = singer_id) inner join genres on (genre = genre_id) inner join album on (album = album_id) where singer=5 group by genre, album order by album_title;
